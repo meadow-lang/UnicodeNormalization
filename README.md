@@ -2,7 +2,7 @@
 
 The Unicode Normalization Forms of
 [UAX #15](https://www.unicode.org/reports/tr15/) (NFD, NFC, NFKD and NFKC) for
-[Meadow](https://github.com/mcdearman/meadow). Also includes quick checks,
+[Meadow](https://github.com/meadow-lang/meadow). Also includes quick checks,
 stream-safe text, and CJK compatibility variants.
 
 This package is a port of Rust's
@@ -16,7 +16,7 @@ spellings only compare equal once both are in the same form.
 ## Install
 
 ```sh
-meadow add mcdearman/UnicodeNormalization
+meadow add meadow-lang/UnicodeNormalization
 ```
 
 ## Use
