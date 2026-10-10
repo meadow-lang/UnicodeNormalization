@@ -13,6 +13,14 @@ Normalize text before comparing, searching or storing it. `"é"` can be written
 as one code point (U+00E9) or as two (`e` followed by U+0301), and the two
 spellings only compare equal once both are in the same form.
 
+## AI disclosure
+
+UnicodeNormalization is written with AI coding agents: Anthropic's Claude,
+through Claude Code. Most of the code, the tests, the documentation and the
+commit messages in this repository were written by an agent, under the direction
+of the project's author, who decides the design and what goes in. Read it, and
+rely on it, with that in mind.
+
 ## Install
 
 ```sh
