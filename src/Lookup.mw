@@ -23,31 +23,25 @@ fun codePoint s i = field s i 4
 -- reads it at a record's start -- is `target`, or `0 - 1`.
 fun findExact table size key target =
   let rec go lo hi =
-    if lo >= hi
-    then 0 - 1
+    if lo >= hi then 0 - 1
     else
       let mid = (lo + hi) / 2 in
       let k = key (mid * size) in
       if target < k then go lo mid else if target > k then go (mid + 1) hi else mid * size
-  in
-  go 0 (stringByteLength table / size)
+  in go 0 (stringByteLength table / size)
 
 -- The record of a `lo hi …` table (records `size` digits long) whose range
 -- holds `cp`, or `0 - 1`.
 fun findRange table size cp =
   let rec go lo hi =
-    if lo >= hi
-    then 0 - 1
+    if lo >= hi then 0 - 1
     else
       let mid = (lo + hi) / 2 in
       let at = mid * size in
-      if cp < codePoint table at
-      then go lo mid
-      else if cp > codePoint table (at + 4)
-      then go (mid + 1) hi
+      if cp < codePoint table at then go lo mid
+      else if cp > codePoint table (at + 4) then go (mid + 1) hi
       else at
-  in
-  go 0 (stringByteLength table / size)
+  in go 0 (stringByteLength table / size)
 
 fun inRanges table cp = findRange table 8 cp >= 0
 
@@ -61,8 +55,7 @@ fun valueIn table width cp =
 -- A decomposition from an index and its data, or `None`.
 fun decomposition index points cp =
   let at = findExact index 8 (\i -> codePoint index i) cp in
-  if at < 0
-  then None
+  if at < 0 then None
   else
     let start = field index (at + 4) 3 in
     let len = field index (at + 7) 1 in
